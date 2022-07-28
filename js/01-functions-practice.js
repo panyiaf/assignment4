@@ -28,7 +28,7 @@
 
 // Create a JavaScript function that accepts a certain amount of numbers as parameters. Those numbers should be collected using a prompt and the numbers should be delimited by commas. Once the values are collected, find the sum of all of the numbers combined. You will need to use a function, loop, arguments object, and several type conversion global functions to accomplish this task.
 
-function hardQuestion(number) {
+function hardQuestion() {
     let base = 0;
     for (let i = 0; i < arguments.length; i++) {
         base += Number(arguments[i])
@@ -36,4 +36,28 @@ function hardQuestion(number) {
 
     return base;
 }
-console.log(hardQuestion(Number(prompt('Please insert numbers separated by a commas'))));
+
+function getNumbers() {
+    let tempNumber;
+    let newNumber = 0;
+    let newNewNumber;
+
+    do {
+        answer = prompt('Would you like to add a new number? (Y / N) ')
+        
+        if ((answer === "Y") || (answer === "y")) {
+            tempNumber = Number(prompt('What number would you like to insert?'));
+            String(newNumber += tempNumber + ', ')
+        } else if ((answer === "N") || (answer === "n")){
+            alert('Thanks for inserting numbers!')
+            newNumber = newNumber.replace(/,\s*$/, "");
+            console.log('this is the final number ' + newNumber)
+            newNewNumber = newNumber
+            return newNewNumber
+        } else {
+            console.log('You didnt put any numbers')
+        }        
+    } while (true) 
+}
+console.log(hardQuestion(parseFloat((getNumbers()))))
+console.log(hardQuestion(03, 4, 6))
